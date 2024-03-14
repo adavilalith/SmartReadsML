@@ -39,5 +39,30 @@ def top50_api():
                     })
     return jsonify(res),200
 
+@app.route('/reccomendations_api',methods=['post'])
+def reccomendations_api():
+    book_name=request.json['name']
+    if len(np.where(pt.index==book_name)[0])==0:
+        return jsonify({'status':0,'books':[]}),200
+    
+    idx = np.where(pt.index==book_name)[0][0]
+    items = sorted(list(enumerate(scores[idx])),key = lambda x:x[1],reverse=True)[1:9]
+    data=[]
+    
+    for i in items:            
+        item=[]
+        temp = books[books['Book-Title']==pt.index[i[0]]]
+        item.extend(list(temp.drop_duplicates('Book-Title')['Book-Title'].values))
+        item.extend(list(temp.drop_duplicates('Book-Title')['Book-Author'].values))       
+        item.extend(list(temp.drop_duplicates('Book-Title')['Image-URL-M'].values))
+        data.append(item)
+    res = []
+    # return jsonify(data),200
+    for i in data:
+        res.append({'Book-title':i[0],
+                    'Book-author':i[1],
+                    'Image-URL-M':i[2],
+                    })
+    return jsonify({'status':1,'books':res}),200
 if __name__ == '__main__':
     app.run(debug=True)
