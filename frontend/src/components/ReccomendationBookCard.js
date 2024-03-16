@@ -12,7 +12,6 @@ export default function ReccomendationBookCard({Books}) {
             <Card.Body>
               <Card.Title>{i['Book-author']}</Card.Title>
               
-              <Button variant="warning"><strong>Buy Now</strong></Button>
             </Card.Body>
           </Card>
         )
