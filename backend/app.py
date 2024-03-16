@@ -64,5 +64,10 @@ def reccomendations_api():
                     'Image-URL-M':i[2],
                     })
     return jsonify({'status':1,'books':res}),200
+
+@app.route('/book_names')
+def book_names_api():
+    return jsonify({'BookNames': list(pt.index)}),200
+
 if __name__ == '__main__':
     app.run(debug=True)
