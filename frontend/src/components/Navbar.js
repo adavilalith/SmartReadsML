@@ -22,20 +22,11 @@ function MainNavbar() {
             <Nav.Link href="#action2">
               <Link to='/Top50' style={{textDecoration:'none',color:'black'}}>Top50</Link>
             </Nav.Link>
-            <Nav.Link href="#action2">Classics</Nav.Link>
-            <Nav.Link href="#action2">Souce Code</Nav.Link>
-            <Nav.Link href="#action2">Let's Connect!</Nav.Link>
+            <Nav.Link><a  href="https://github.com/adavilalith/Book_Reccomendation_System" target='_blank' style={{textDecoration:'none',color:'black'}}>Source Code</a></Nav.Link>
+            <Nav.Link><a  href="https://github.com/adavilalith/Book_Reccomendation_System" target='_blank' style={{textDecoration:'none',color:'black'}}>Let's Connect!</a></Nav.Link>
+
 
         </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
