@@ -8,7 +8,7 @@ function MainNavbar() {
   return (
     <Navbar expand="lg" className="bg-light">
       <Container fluid>
-        <Navbar.Brand href="#"><strong>Book Reccomendation System</strong></Navbar.Brand>
+        <Navbar.Brand href="#"><strong>SmartReadsML</strong></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -22,11 +22,10 @@ function MainNavbar() {
             <Nav.Link href="#action2">
               <Link to='/Top50' style={{textDecoration:'none',color:'black'}}>Top50</Link>
             </Nav.Link>
-            <Nav.Link><a  href="https://github.com/adavilalith/Book_Reccomendation_System" target='_blank' style={{textDecoration:'none',color:'black'}}>Source Code</a></Nav.Link>
-            <Nav.Link><a  href="https://github.com/adavilalith/Book_Reccomendation_System" target='_blank' style={{textDecoration:'none',color:'black'}}>Let's Connect!</a></Nav.Link>
-
-
+            <Nav.Link href="https://github.com/adavilalith/Book_Reccomendation_System" target='_blank'>Source Code</Nav.Link>
+            <Nav.Link href="https://www.linkedin.com/in/lalith-adavi-284378274" target='_blank'>Let's Connect!</Nav.Link>
         </Nav>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
