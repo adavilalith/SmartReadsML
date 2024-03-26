@@ -4,9 +4,9 @@ import pickle
 import numpy as np
 import pandas 
 
-path = '.' #for local host
+# path = '.' #for local host
 
-# path = 'home/LalithAdavi/mysite/res' #for pythonanywhere deployment
+path = '/home/LalithAdavi/mysite/res' #for pythonanywhere deployment
 
 popularity_df=pickle.load(open(path + '/res/popularity_df.pkl','rb'))
 pt = pickle.load(open(path + '/res/pt.pkl','rb'))
