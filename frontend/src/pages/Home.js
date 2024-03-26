@@ -104,7 +104,7 @@ export default function Home() {
       <Row className='mt-5'>
         <Col xs={0} sm={0}></Col>
         <Col xs={8} sm={8} lg={6} xl={6}>
-        <form onSubmit={(e)=>fetchReccomendations(e)}>
+        <form onSubmit={(e)=>fetchReccomendations(e,BookName)}>
         <div className='dropdown' style={{border:'solid',borderWidth:'0.1rem',borderRadius:'6px'}} >
             
             <input
@@ -115,7 +115,7 @@ export default function Home() {
               value={BookName}
               onChange={(e)=>setBookName(e.target.value)}
               style={{width:'100%',borderRadius:'5px',boxShadow:'none'}}
-              onSubmit={fetchReccomendations}
+              onSubmit={(e)=>{alert('hi');fetchReccomendations(e,BookName)}}
             />
           {BookNames.filter((name)=>{
             if(BookName.length==0){
