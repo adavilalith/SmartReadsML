@@ -5,6 +5,8 @@ import ReccomendationBookCard from '../components/ReccomendationBookCard'
 import axios from 'axios'
 import websiteBannerTest from './homepage-bookstore-2022.jpg'
 import './Home.css'
+import {api_address} from '../config/pythonAPI.js'
+
 
 export default function Home() {
   const [BookNames,setBookNames] = useState([])//for search feature
@@ -17,7 +19,7 @@ export default function Home() {
     let config = {
        method:'post',            
        maxBodyLength: Infinity,
-       url:'http://127.0.0.1:5000/reccomendations_api',
+       url: api_address+'/reccomendations_api',
        headers:{ 
         'Content-Type': 'application/json'
        },
@@ -33,7 +35,7 @@ export default function Home() {
       let config = {
         method : 'get',       
         maxBodyLength: Infinity,
-        url : 'http://127.0.0.1:5000/book_names',
+        url : api_address+'/book_names',
         header:{}
       };
 

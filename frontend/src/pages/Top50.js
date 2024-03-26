@@ -3,15 +3,18 @@ import MainNavbar from '../components/Navbar'
 import {Container} from 'react-bootstrap'
 import BookCard from '../components/BookCard'
 import axios from 'axios'
+import {api_address} from '../config/pythonAPI.js'
+
 
 export default function Top50() {
+
     const [data,setData] = useState([])
 
     const fetchTop50 = async ()=>{
         let config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: 'http://127.0.0.1:5000/top50_api',
+            url: api_address+'/top50_api',
             headers: { }
             };
     
