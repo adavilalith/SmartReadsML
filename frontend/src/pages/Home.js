@@ -1,12 +1,11 @@
 import React,{useEffect, useState} from 'react'
 import MainNavbar from '../components/Navbar'
 import { Container,Row,Col,Form,Button } from 'react-bootstrap'
-import ReccomendationBookCard from '../components/ReccomendationBookCard'
 import axios from 'axios'
 import websiteBannerTest from './homepage-bookstore-2022.jpg'
 import './Home.css'
 import {api_address} from '../config/pythonAPI.js'
-
+import BookCard from '../components/BookCard'
 
 export default function Home() {
   const [BookNames,setBookNames] = useState([])//for search feature
@@ -40,7 +39,6 @@ export default function Home() {
       };
 
       const res = await axios.request(config);
-      console.log(res)
       setBookNames(res.data.BookNames)    
 
   }
@@ -153,7 +151,7 @@ export default function Home() {
       {NoBooksHandler()}
 
       <Row>
-        <ReccomendationBookCard Books={data.books}></ReccomendationBookCard>
+        <BookCard Books={data.books}></BookCard>
       </Row>
     </Container>
     </>

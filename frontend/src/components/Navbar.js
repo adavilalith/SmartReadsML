@@ -16,10 +16,10 @@ function MainNavbar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">
+            <Nav.Link >
               <Link to='/' style={{textDecoration:'none',color:'black'}}>Home</Link>
             </Nav.Link>
-            <Nav.Link href="#action2">
+            <Nav.Link >
               <Link to='/Top50' style={{textDecoration:'none',color:'black'}}>Top50</Link>
             </Nav.Link>
             <Nav.Link href="https://github.com/adavilalith/Book_Reccomendation_System" target='_blank'>Source Code</Nav.Link>

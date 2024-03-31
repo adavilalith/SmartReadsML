@@ -14,7 +14,8 @@ export default function BookCard({Books}) {
               <Card.Title>{i['Book-title']}</Card.Title>
               <Card.Text>
                 <p>{i['Book-author']}</p>
-                {`Ratings: ${(i['avg_ratings']*1.6).toFixed(1)}`}
+                <p>{`${Number(i['avg_rating']).toFixed(2)}/10`}</p>
+                <p>{`${i['num_ratings']} ratings`}</p>
               </Card.Text>
             </Card.Body>
           </Card>
