@@ -8,11 +8,9 @@ path = '.' #for local host
 
 # path = 'home/LalithAdavi/mysite/res' #for pythonanywhere deployment
 
-popularity_df=pickle.load(open(path + '/res/popularity_df.pkl','rb'))
 pt = pickle.load(open(path + '/res/pt.pkl','rb'))
-books = pickle.load(open(path + '/res/books.pkl','rb'))
+books = pickle.load(open(path + '/res/comp_books.pkl','rb'))
 scores = pickle.load(open(path + '/res/scores.pkl','rb'))
-old_books = pandas.read_pickle(path + '/res/old_books1.pkl')
 
 
 app = Flask(__name__)
@@ -25,12 +23,13 @@ def index_ui():
 
 @app.route('/top50_api')
 def top50_api():
+    x=books.sort_values(by='avg_rating',ascending=False)
     data =  [
-                           list(popularity_df['Book-Title'].values),
-                           list(popularity_df['Book-Author'].values),
-                           list(popularity_df['Image-URL-M'].values),
-                           list(popularity_df['num_ratings'].values),
-                           list(format(i,".2f") for i in popularity_df['avg_rating'].values)
+                           list(x['Book-Title'].values),
+                           list(x['Book-Author'].values),
+                           list(x['Image-URL-L'].values),
+                           list(x['num_ratings'].values),
+                           list(format(i,".2f") for i in x['avg_rating'].values)
     ]
     res = []
     for i in range(50):
@@ -49,7 +48,7 @@ def reccomendations_api():
         return jsonify({'status':0,'books':[]}),200
     
     idx = np.where(pt.index==book_name)[0][0]
-    items = sorted(list(enumerate(scores[idx])),key = lambda x:x[1],reverse=True)[1:9]
+    items = sorted(list(enumerate(scores[idx])),key = lambda x:x[1],reverse=True)[1:20]
     data=[]
     
     for i in items:            
@@ -57,21 +56,24 @@ def reccomendations_api():
         temp = books[books['Book-Title']==pt.index[i[0]]]
         item.extend(list(temp.drop_duplicates('Book-Title')['Book-Title'].values))
         item.extend(list(temp.drop_duplicates('Book-Title')['Book-Author'].values))       
-        item.extend(list(temp.drop_duplicates('Book-Title')['Image-URL-M'].values))
+        item.extend(list(temp.drop_duplicates('Book-Title')['Image-URL-L'].values))
         data.append(item)
     res = []
     # return jsonify(data),200
     for i in data:
+        if len(i)==0:
+            continue
         res.append({'Book-title':i[0],
                     'Book-author':i[1],
                     'Image-URL-M':i[2],
                     })
+        data=data[:10]
     return jsonify({'status':1,'books':res}),200
 
 @app.route('/book_names')
 def book_names_api():
-    return jsonify({'BookNames': list(pt.index)}),200
+    return jsonify({'BookNames': list(books['Book-Title'])}),200
 
-#comment below code for pythonanywhere deployment
-# if __name__ == '__main__':
-#     app.run(debug=True)
+# comment below code for pythonanywhere deployment
+if __name__ == '__main__':
+    app.run(debug=True)
