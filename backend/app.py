@@ -57,6 +57,8 @@ def reccomendations_api():
         item.extend(list(temp.drop_duplicates('Book-Title')['Book-Title'].values))
         item.extend(list(temp.drop_duplicates('Book-Title')['Book-Author'].values))       
         item.extend(list(temp.drop_duplicates('Book-Title')['Image-URL-L'].values))
+        item.extend(list(temp.drop_duplicates('Book-Title')['num_ratings'].values))
+        item.extend(list(temp.drop_duplicates('Book-Title')['avg_rating'].values))
         data.append(item)
     res = []
     # return jsonify(data),200
@@ -66,6 +68,8 @@ def reccomendations_api():
         res.append({'Book-title':i[0],
                     'Book-author':i[1],
                     'Image-URL-M':i[2],
+                    'num_ratings':i[3],
+                    'avg_rating':i[4]
                     })
         data=data[:10]
     return jsonify({'status':1,'books':res}),200
