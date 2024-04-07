@@ -6,6 +6,7 @@ import websiteBannerTest from './homepage-bookstore-2022.jpg'
 import './Home.css'
 import {api_address} from '../config/pythonAPI.js'
 import BookCard from '../components/BookCard'
+import {motion} from 'framer-motion'
 
 export default function Home() {
   const [BookNames,setBookNames] = useState([])//for search feature
@@ -75,9 +76,9 @@ export default function Home() {
     <>
     <MainNavbar/>
     <div className='hero'>
-      <div className='herotext'>
+      <motion.div className='herotext' initial={{opacity:0,x:-50}} whileInView={{opacity:1,x:0}} transition={{duration:0.5}}>
         <h1 id="title"><strong>How SmartReadsML works</strong></h1>
-        <ul>
+        <motion.ul initial={{opacity:0,y:100}} whileInView={{opacity:1,y:0}} transition={{duration:1}} style={{listStyleType:'none'}}>
           <li>
             <h3 className='points'>Takes user input using React.js for frontend</h3>
           </li>
@@ -93,9 +94,8 @@ export default function Home() {
           <li>
             <h3 className="points">It uses cosine similarity scores of the books for reccomendations</h3>
           </li>
-
-        </ul>
-      </div>
+        </motion.ul>
+      </motion.div>
       <img src={websiteBannerTest} className='heroimg'></img>
     </div>
     <Container>
