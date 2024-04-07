@@ -91,9 +91,9 @@ export default function Home() {
           <li>
             <h3 className="points">The model is a collaborative filtering recommender system </h3>
           </li>
-          // <li>
-          //   <h3 className="points">It uses cosine similarity scores of the books for reccomendations</h3>
-          // </li>
+          {/*<li>
+            <h3 className="points">It uses cosine similarity scores of the book/ for reccomendations</h3>
+            </li>*/}
         </motion.ul>
       </motion.div>
       <img src={websiteBannerTest} className='heroimg'></img>
