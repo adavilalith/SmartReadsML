@@ -31,9 +31,7 @@ export default function Top50() {
     return (
       <>
         <MainNavbar></MainNavbar>
-        <Container>
           <BookCard Books={data} />
-        </Container> 
       </>
     )
 }

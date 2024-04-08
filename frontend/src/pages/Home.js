@@ -76,10 +76,10 @@ export default function Home() {
     <>
     <MainNavbar/>
     <div className='hero'>
-      <motion.div className='herotext px' initial={{opacity:0,x:-50}} whileInView={{opacity:1,x:0}} transition={{duration:0.5}}>
+      <motion.div className='herotext ' initial={{opacity:0,x:-50}} whileInView={{opacity:1,x:0}} transition={{duration:0.5}}>
         <h1 id="title"><strong>Welcome to SmartReadsML</strong></h1>
         <h4>
-          Welcome to SmartReadsML, where personalized reading experiences meet cutting-edge technology. <br /> Our platform is built on collaborative filtering, a powerful recommendation system that analyzes user preferences to suggest content tailored just for you.
+          Welcome to SmartReadsML, where personalized reading experiences meet cutting-edge technology. <br />This project is built on collaborative filtering, a powerful recommendation system that analyzes user preferences to suggest content tailored just for you.
         </h4>
         <motion.div className="mt-4" initial={{opacity:0,y:100}} whileInView={{opacity:1,y:0}} transition={{duration:1}}>
         <h1><strong>How does it work? </strong></h1>

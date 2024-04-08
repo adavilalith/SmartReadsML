@@ -7,8 +7,8 @@ export default function BookCard({Books}) {
 
      {Books.map((i,idx)=>{
         return (
-            <Card key={idx} className='mx-3 my-3' style={{ width: '15rem' }}>
-            <Card.Img variant="top" src={i['Image-URL-M']} style={{height:'15rem'}}/>
+            <Card key={idx} className='mx-3 my-3' style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={i['Image-URL-M']} style={{height:'20rem'}}/>
             <Card.Body>
 
               <Card.Title>{i['Book-title']}</Card.Title>
