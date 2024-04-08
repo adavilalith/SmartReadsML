@@ -53,7 +53,7 @@ export default function Home() {
     if(data.status==1 && data.books.length==0){
       return(
         <Row className='my-5 mb-5 text-center '>
-          <h2>Enter a Book name to get Machine Learning powered book reccomendation. </h2>
+          <motion.h5 initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} transition={{duration:0.5}}>Enter a Book name to get Machine Learning powered book reccomendation. </motion.h5>
         </Row>
       )
     }
@@ -76,7 +76,7 @@ export default function Home() {
     <>
     <MainNavbar/>
     <div className='hero'>
-      <motion.div className='herotext ' initial={{opacity:0,x:-50}} whileInView={{opacity:1,x:0}} transition={{duration:0.5}}>
+      <motion.div className='herotext' initial={{opacity:0,x:-50}} whileInView={{opacity:1,x:0}} transition={{duration:0.5}}>
         <h1 id="title"><strong>Welcome to SmartReadsML</strong></h1>
         <h4>
           Welcome to SmartReadsML, where personalized reading experiences meet cutting-edge technology. <br />This project is built on collaborative filtering, a powerful recommendation system that analyzes user preferences to suggest content tailored just for you.
