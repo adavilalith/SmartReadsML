@@ -14,6 +14,9 @@
         padding: 3rem 3rem;
         border-radius: 5rem;
     }
+    .points{
+        text-align: left;
+    }
     
 }
 @media (width<900px){
@@ -35,7 +38,9 @@
     .herotext>#title{
         padding-right: 0%;
     }    
-
+    .points{
+        text-align: center;
+    }
 }
 .heroimg{
     height: 100%;
@@ -46,5 +51,4 @@
 }
 .points{
     margin: 2rem 0rem;
-    text-align: left;
 }

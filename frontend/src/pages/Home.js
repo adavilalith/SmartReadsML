@@ -60,7 +60,7 @@ export default function Home() {
     if (data.status==0){
     return (
         <Row className='d-flex text-center my-5'>
-          <p className='h3'>No Books with that name exsists <br /> <br />Try another Book Name</p>
+          <p className='h4'>No Books with that name exsists <br /> <br />Try another Book Name</p>
         </Row>
       )
     }
@@ -76,25 +76,19 @@ export default function Home() {
     <>
     <MainNavbar/>
     <div className='hero'>
-      <motion.div className='herotext' initial={{opacity:0,x:-50}} whileInView={{opacity:1,x:0}} transition={{duration:0.5}}>
-        <h1 id="title"><strong>How SmartReadsML works</strong></h1>
-        <motion.ul initial={{opacity:0,y:100}} whileInView={{opacity:1,y:0}} transition={{duration:1}} style={{listStyleType:'none'}}>
-          <li>
-            <h3 className='points'>Takes user input using React.js for frontend</h3>
-          </li>
-          <li>
-            <h3 className="points">A Python Flask server runs hosts the ML model</h3>
-          </li>
-          <li>
-            <h3 className="points">ML model used a dataset of users,books,ratings</h3>
-          </li>
-          <li>
-            <h3 className="points">The model is a collaborative filtering recommender system </h3>
-          </li>
-          {/*<li>
-            <h3 className="points">It uses cosine similarity scores of the book/ for reccomendations</h3>
-            </li>*/}
-        </motion.ul>
+      <motion.div className='herotext px' initial={{opacity:0,x:-50}} whileInView={{opacity:1,x:0}} transition={{duration:0.5}}>
+        <h1 id="title"><strong>Welcome to SmartReadsML</strong></h1>
+        <h4>
+          Welcome to SmartReadsML, where personalized reading experiences meet cutting-edge technology. <br /> Our platform is built on collaborative filtering, a powerful recommendation system that analyzes user preferences to suggest content tailored just for you.
+        </h4>
+        <motion.div className="mt-4" initial={{opacity:0,y:100}} whileInView={{opacity:1,y:0}} transition={{duration:1}}>
+        <h1><strong>How does it work? </strong></h1>
+            <h4 className='points'>Takes user input using React.js for frontend</h4>
+            <h4 className='points'>A combination of CSS and Bootstrap is used to style the website</h4>
+            <h4 className='points'>The react.js website is deployed on vercel</h4>
+            <h4 className="points">A PythonAnywhere Flask server hosts the reccomeder system</h4>
+            <h4 className="points">The model used in this project collaborative filtering recommender system </h4>
+        </motion.div>
       </motion.div>
       <img src={websiteBannerTest} className='heroimg'></img>
     </div>
