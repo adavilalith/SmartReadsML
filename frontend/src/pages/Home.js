@@ -7,6 +7,9 @@ import './Home.css'
 import {api_address} from '../config/pythonAPI.js'
 import BookCard from '../components/BookCard'
 import {motion} from 'framer-motion'
+import Footer from '../components/Footer.js'
+import { Container,Card,Button } from 'react-bootstrap'
+
 
 export default function Home() {
   const [BookNames,setBookNames] = useState([])//for search feature
@@ -52,9 +55,10 @@ export default function Home() {
   const NoBooksHandler=()=>{
     if(data.status==1 && data.books.length==0){
       return(
-        <Row className='my-5 mb-5 text-center '>
-          <motion.h5 initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} transition={{duration:0.5}}>Enter a Book name to get Machine Learning powered book reccomendation. </motion.h5>
-        </Row>
+        ""
+        // <Row className='my-5 mb-5 text-center '>
+        //   <motion.h5 initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} transition={{duration:0.5}}>Enter a Book name to get Machine Learning powered book reccomendation. </motion.h5>
+        // </Row>
       )
     }
     if (data.status==0){
@@ -66,7 +70,10 @@ export default function Home() {
     }
     else{
       return(
-      <h1>Reccomendations:</h1>
+        <>
+      <h1>Reccomendations:</h1> 
+      <br/>
+        </>
       )
     }
   }
@@ -76,26 +83,14 @@ export default function Home() {
     <>
     <MainNavbar/>
     <div className='hero'>
-      <motion.div className='herotext' initial={{opacity:0,x:-50}} whileInView={{opacity:1,x:0}} transition={{duration:0.5}}>
-        <h1 id="title"><strong>Welcome to SmartReadsML</strong></h1>
-        <h4>
-          Welcome to SmartReadsML, where personalized reading experiences meet cutting-edge technology. <br />This project is built on collaborative filtering, a powerful recommendation system that analyzes user preferences to suggest content tailored just for you.
+      <motion.div className='herotext' initial={{opacity:0,y:50}} whileInView={{opacity:1,y:0}} transition={{duration:0.5}}>
+        <h1 id="title"><strong>Find Your Next Great Read</strong></h1><br/>
+        <h4 style={{"color":"grey"}}> 
+        Enter a book you love and discover similar titles that you'll enjoy just as much.
         </h4>
-        <motion.div className="mt-4" initial={{opacity:0,y:100}} whileInView={{opacity:1,y:0}} transition={{duration:1}}>
-        <h1><strong>How does it work? </strong></h1>
-            <h4 className='points'>Takes user input using React.js for frontend</h4>
-            <h4 className='points'>A combination of CSS and Bootstrap is used to style the website</h4>
-            <h4 className='points'>The react.js website is deployed on vercel</h4>
-            <h4 className="points">A PythonAnywhere Flask server hosts the reccomeder system</h4>
-            <h4 className="points">The model used in this project collaborative filtering recommender system </h4>
-        </motion.div>
       </motion.div>
-      <img src={websiteBannerTest} className='heroimg'></img>
     </div>
-    <Container>
-      <Row className='mt-5'>
-        <Col xs={0} sm={0}></Col>
-        <Col xs={8} sm={8} lg={6} xl={6}>
+    <div id="search-div">
         <form onSubmit={(e)=>fetchReccomendations(e,BookName)}>
         <div className='dropdown' style={{border:'solid',borderWidth:'0.1rem',borderRadius:'6px'}} >
             
@@ -136,18 +131,41 @@ export default function Home() {
           })}
           </div>
           </form>
-        </Col>
-        <Col >
-        <Button variant="outline-success" onClick={(e)=>fetchReccomendations(e,BookName)}>Search</Button>
-        </Col>
-        <Col xs={0} sm={0}></Col>
-      </Row>
+        <Button id="search-btn" variant="outline-success" onClick={(e)=>fetchReccomendations(e,BookName)}>Search</Button>
+      <br/>
       {NoBooksHandler()}
 
       <Row>
         <BookCard Books={data.books}></BookCard>
       </Row>
-    </Container>
+    </div>
+    <div id="explanation-div">
+    <h1><strong>How It Works</strong></h1>
+      <h4 style={{"color":"grey","padding":"10px"}}>
+      Our recommendation engine analyzes thousands of books to find the perfect match for your reading preferences.
+      </h4>
+      <ol>
+        <li>Enter a book you've enjoyed</li>
+        <li>Our algorithm finds similar titles</li>
+        <li>Discover your next favorite book</li>
+      </ol>
+    </div>
+    <div id="personal-reccomentations">
+      <h1><strong>Currently Reading:</strong><br/></h1>
+      <Card className='mx-3 my-3' style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.webnovel.com%2Fbook%2Fshadow-slave_22196546206090805&psig=AOvVaw3aXOoLHSto6DRSx7b1qhp0&ust=1742606324941000&source=images&opi=89978449"} style={{height:'20rem'}}/>
+        <Card.Body>
+
+          <Card.Title>{"Shadow Slave"}</Card.Title>
+          <Card.Text>
+            <p>{i['Book-author']}</p>
+            <p>{`${Number(i['avg_rating']).toFixed(2)}/10`}</p>
+            <p>{`${i['num_ratings']} ratings`}</p>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </div>
+    <Footer/>
     </>
   )
 }

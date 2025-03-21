@@ -1,43 +1,55 @@
 .hero{
-    background-color: lightblue;
-    display: flex;
+    text-align: center;
+    margin-top:5rem
 }
 @media (width>=900px){
     
     .herotext{
         flex-grow: 4;
-        padding: 2rem 5rem;
+        padding: 5rem 3rem;
     }
-
-    .heroimg{
-        width:30%;
-        padding: 3rem 3rem;
-        border-radius: 5rem;
+    .herotext>h1{
+      font-weight:900;
+      font-size: 400%;
     }
+    
     .points{
         text-align: left;
     }
-    
+    #explanation-div{
+        margin:0rem 3rem;
+        max-width: 50%;
+      margin-top:15rem;
+
+    }
+    #search-div{
+      display: flex;
+      justify-content: center;
+    column-gap: 20px;
+
+    }
 }
+#personal-reccomendations{
+  
 @media (width<900px){
+  .herotext{
+    padding:0px 20px;
+  }
+  #search-div{
+    margin: 1rem;
+      display: flex;
+    flex-wrap:wrap ;
+    justify-content: center;
+    row-gap: 20px;
+
+  }
+    #explanation-div{
+        margin:10rem 1rem;
+    }
     .hero{
-        flex-wrap: wrap;
-        align-items: center;
         text-align: center;
     }
-    .herotext{
-        margin:2rem 1rem;
-        }
-    .heroimg{
-        width: 80%;
-        padding: 1rem 1rem;
-        border-radius: 2rem;
-        margin:auto;
-    }
     
-    .herotext>#title{
-        padding-right: 0%;
-    }    
     .points{
         text-align: center;
     }
@@ -45,10 +57,130 @@
 .heroimg{
     height: 100%;
 }
-.herotext>#title{
-    font-size: 50px;
+.herotext>#herotitle{
     margin: 2rem 0rem;
 }
 .points{
     margin: 2rem 0rem;
+}
+
+
+/* Clean Input Style for All Inputs */
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 10px 50px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+}
+
+/* Optional: Rounded Corners */
+input.rounded,
+textarea.rounded,
+select.rounded {
+  border-radius: 20px;
+}
+
+/* Optional: Subtle Box Shadow */
+input.shadow,
+textarea.shadow,
+select.shadow {
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input.shadow:focus,
+textarea.shadow:focus,
+select.shadow:focus {
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Optional: Underline Style */
+input.underline,
+textarea.underline,
+select.underline {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+  padding: 8px 0;
+}
+
+input.underline:focus,
+textarea.underline:focus,
+select.underline:focus {
+  border-bottom-color: #007bff;
+  box-shadow: none;
+}
+
+/* Optional: Error State */
+input.error,
+textarea.error,
+select.error {
+  border-color: #dc3545;
+}
+
+input.error:focus,
+textarea.error:focus,
+select.error:focus {
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+/* Optional: Success State */
+input.success,
+textarea.success,
+select.success {
+  border-color: #28a745;
+}
+
+input.success:focus,
+textarea.success:focus,
+select.success:focus {
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Optional: Disabled State */
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: #f0f0f0;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Select specific styling for select dropdown arrows. */
+select {
+  appearance: none; /* remove default arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px;
+}
+
+select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23007bff' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");/*change arrow color on focus*/
+}
+
+#search-btn{
+    padding: 10px 50px;
+}
+li{
+  font-size: large;
 }

@@ -8,7 +8,7 @@ function MainNavbar() {
   return (
     <Navbar expand="lg" className="bg-light">
       <Container fluid>
-        <Navbar.Brand href="#"><strong>SmartReadsML</strong></Navbar.Brand>
+        <Navbar.Brand href="#"><strong>NovelNavigator</strong></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav
