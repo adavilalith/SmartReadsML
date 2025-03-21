@@ -89,7 +89,6 @@ export default function Home() {
         Enter a book you love and discover similar titles that you'll enjoy just as much.
         </h4>
       </motion.div>
-    </div>
     <div id="search-div">
         <form onSubmit={(e)=>fetchReccomendations(e,BookName)}>
         <div className='dropdown' style={{border:'solid',borderWidth:'0.1rem',borderRadius:'6px'}} >
@@ -134,6 +133,7 @@ export default function Home() {
         <Button id="search-btn" variant="outline-success" onClick={(e)=>fetchReccomendations(e,BookName)}>Search</Button>
       <br/>
       </div>
+    </div>
          
           
 
@@ -147,6 +147,7 @@ export default function Home() {
 
         <BookCard Books={data.books}></BookCard>
       </Row>
+      <div id="edo">
     <div id="explanation-div">
     <h1><strong>How It Works</strong></h1>
       <h4 style={{"color":"grey","padding":"10px"}}>
@@ -157,6 +158,7 @@ export default function Home() {
         <li>Our algorithm finds similar titles</li>
         <li>Discover your next favorite book</li>
       </ol>
+    </div>
     </div>
     <div id="personal-reccomentations">
       <h1><strong>Currently Reading:</strong><br/></h1>
