@@ -8,7 +8,7 @@ import {api_address} from '../config/pythonAPI.js'
 import BookCard from '../components/BookCard'
 import {motion} from 'framer-motion'
 import Footer from '../components/Footer.js'
-import { Container,Card,Button } from 'react-bootstrap'
+import { Card} from 'react-bootstrap'
 
 
 export default function Home() {
@@ -133,12 +133,20 @@ export default function Home() {
           </form>
         <Button id="search-btn" variant="outline-success" onClick={(e)=>fetchReccomendations(e,BookName)}>Search</Button>
       <br/>
-      {NoBooksHandler()}
+      </div>
+         
+          
 
+          <br/>
+
+<Row style={{"padding":"0rem 3rem"}}>
+{NoBooksHandler()}
+
+</Row>
       <Row>
+
         <BookCard Books={data.books}></BookCard>
       </Row>
-    </div>
     <div id="explanation-div">
     <h1><strong>How It Works</strong></h1>
       <h4 style={{"color":"grey","padding":"10px"}}>
@@ -153,14 +161,14 @@ export default function Home() {
     <div id="personal-reccomentations">
       <h1><strong>Currently Reading:</strong><br/></h1>
       <Card className='mx-3 my-3' style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.webnovel.com%2Fbook%2Fshadow-slave_22196546206090805&psig=AOvVaw3aXOoLHSto6DRSx7b1qhp0&ust=1742606324941000&source=images&opi=89978449"} style={{height:'20rem'}}/>
+        <Card.Img variant="top" src={"https://m.media-amazon.com/images/I/515fsT6ty4L._UF1000,1000_QL80_.jpg"} style={{height:'20rem'}}/>
         <Card.Body>
 
           <Card.Title>{"Shadow Slave"}</Card.Title>
           <Card.Text>
-            <p>{i['Book-author']}</p>
-            <p>{`${Number(i['avg_rating']).toFixed(2)}/10`}</p>
-            <p>{`${i['num_ratings']} ratings`}</p>
+            <p>{"GuiltyThree"}</p>
+            <p>{`${Number(9.38).toFixed(2)}/10`}</p>
+            <p>{`${4598} ratings`}</p>
           </Card.Text>
         </Card.Body>
       </Card>

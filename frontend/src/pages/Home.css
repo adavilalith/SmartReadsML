@@ -29,8 +29,12 @@
 
     }
 }
-#personal-reccomendations{
-  
+#personal-reccomentations{
+  display: flex;
+flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 @media (width<900px){
   .herotext{
     padding:0px 20px;
