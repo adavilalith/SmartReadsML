@@ -1,10 +1,10 @@
-## SmartReadsML
+## NovelNavigator 
 
 This is a full stack project which uses react for the frontend and a python flask server as the backend.
 It uses a content based reccomendation system to provide book reccomendations
 
 
-Visit the Website here:✨📚 https://smart-reads-ml.vercel.app/ 📚✨
+Visit the Website here:✨📚 https://novel-navigator-eight.vercel.app/ 📚✨
 
 
 ## Features.
